@@ -9,11 +9,44 @@
 
     <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}" media="screen"/>
 
-    <script src="https://cdn.tailwindcss.com"></script>
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 <body class="font-sans">
-<div class="container mx-auto pt-4">
-    @yield('content')
+<div class="d-flex">
+    <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark vh-100" style="width: 280px;">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+            <svg class="bi me-2" width="40" height="32">
+                <use xlink:href="#bootstrap"></use>
+            </svg>
+            <span class="fs-4">Zenith</span>
+        </a>
+        <hr>
+        <ul class="nav nav-pills flex-column mb-auto">
+            <li class="nav-item">
+                <a href="#" class="nav-link @if (Route::is('home')) active @else text-white @endif" aria-current="page">
+                    <svg class="bi me-2" width="16" height="16">
+                        <use xlink:href="{{ route('home') }}"></use>
+                    </svg>
+                    Home
+                </a>
+            </li>
+            <li>
+                <a href="#" class="nav-link @if (Route::is('steps.index')) active @else text-white @endif">
+                    <svg class="bi me-2" width="16" height="16">
+                        <use xlink:href="{{ route('steps.index') }}"></use>
+                    </svg>
+                    Stappen
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content" style="width: calc(100vw - 280px);">
+        <div class="container-fluid">
+            <div class="content-wrapper pt-3 px-3">
+                @yield('content')
+            </div>
+        </div>
+    </div>
 </div>
 </body>
 </html>

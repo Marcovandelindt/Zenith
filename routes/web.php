@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/spotify', [App\Http\Controllers\Spotify\SpotifyController::class, 'index'])->name('spotify.index');
+
+Route::get('/steps', [App\Http\Controllers\Steps\StepsController::class, 'index'])->name('steps.index');
+Route::get('/steps/create', [App\Http\Controllers\Steps\CreateStepsController::class, 'index'])->name('steps.create');
+Route::post('/steps/create', [App\Http\Controllers\Steps\CreateStepsController::class, 'create']);
