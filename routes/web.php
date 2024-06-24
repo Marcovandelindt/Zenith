@@ -14,3 +14,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/spotify', [App\Http\Controllers\Spotify\SpotifyController::class, 'index'])->name('spotify.index');
