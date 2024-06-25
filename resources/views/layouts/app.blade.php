@@ -13,7 +13,7 @@
 </head>
 <body class="font-sans">
 <div class="d-flex">
-    <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark vh-100" style="width: 280px;">
+    <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark h-100 position-fixed" style="width: 280px;">
         <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
             <svg class="bi me-2" width="40" height="32">
                 <use xlink:href="#bootstrap"></use>
@@ -40,7 +40,7 @@
             </li>
         </ul>
     </div>
-    <div class="main-content" style="width: calc(100vw - 280px);">
+    <div class="main-content" style="width: calc(100vw - 280px); margin-left: 280px;">
         <div class="container-fluid">
             <div class="content-wrapper pt-3 px-3">
                 @yield('content')

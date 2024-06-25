@@ -38,11 +38,22 @@
                     </div>
                 </div>
                 <div class="col-3">
-                    <div class="card statistic-card bg-warning-subtle">
+                    <div class="card statistic-card bg-primary-subtle">
                         <div class="card-header">
                             <h5 class="pt-2">Tijd in beweging:</h5>
                         </div>
                         <div class="card-body">
+                            <p><span class="fs-1">{{ $hoursInMovement }}</span></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="card statistic-card bg-secondary-subtle">
+                        <div class="card-header">
+                            <h5 class="pt-2">Ten opzichte van vorige maand:</h5>
+                        </div>
+                        <div class="card-body">
+                            <p><span class="fs-1">9.327</span><span>stappen meer dan vorige maand</span></p>
                         </div>
                     </div>
                 </div>

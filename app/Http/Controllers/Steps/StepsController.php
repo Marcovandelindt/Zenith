@@ -25,6 +25,7 @@ class StepsController extends Controller
     {
         $steps = Step::all();
         $stepsByMonthAndYear = $this->stepsService->getStepsByMonthAndYear(date('m'), date('Y'));
+        $hoursInMovement = $this->stepsService->calculateMovementInHours(67, $stepsByMonthAndYear, 4.8);
 
         $data = [
             'title' => 'Stappen',
@@ -34,6 +35,7 @@ class StepsController extends Controller
             'steps' => $steps,
             'data' => $data,
             'stepsByMonthAndYear' => $stepsByMonthAndYear,
+            'hoursInMovement' => $hoursInMovement,
         ]);
     }
 }
