@@ -20,3 +20,4 @@ Route::get('/spotify', [App\Http\Controllers\Spotify\SpotifyController::class, '
 Route::get('/steps', [App\Http\Controllers\Steps\StepsController::class, 'index'])->name('steps.index');
 Route::get('/steps/create', [App\Http\Controllers\Steps\CreateStepsController::class, 'index'])->name('steps.create');
 Route::post('/steps/create', [App\Http\Controllers\Steps\CreateStepsController::class, 'create']);
+Route::get('/steps/totals', [App\Http\Controllers\Steps\StepTotalsController::class, 'index'])->name('step.totals');

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Step;
 use App\Services\StepsService;
 use Illuminate\Contracts\View\View;
+use Illuminate\Tests\Integration\Database\EloquentHasManyThroughTest\Product;
 
 class StepsController extends Controller
 {
@@ -25,6 +26,14 @@ class StepsController extends Controller
     {
         $steps = Step::all();
         $stepsByMonthAndYear = $this->stepsService->getStepsByMonthAndYear(date('m'), date('Y'));
+
+        if (date('m') == '01') {
+            $previousMonth = 12;
+        } else {
+            $previousMonth = date('m') - 1;
+        }
+
+        $previousMonthSteps = $this->stepsService->getStepsByMonthAndYear($previousMonth, date('Y'));
         $hoursInMovement = $this->stepsService->calculateMovementInHours(67, $stepsByMonthAndYear, 4.8);
 
         $data = [
@@ -36,6 +45,7 @@ class StepsController extends Controller
             'data' => $data,
             'stepsByMonthAndYear' => $stepsByMonthAndYear,
             'hoursInMovement' => $hoursInMovement,
+            'previousMonthSteps' => $previousMonthSteps,
         ]);
     }
 }

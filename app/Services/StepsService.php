@@ -50,4 +50,25 @@ class StepsService
 
         return $hours . ' uur en ' . $minutes . ' minuten';
     }
+
+    /**
+     * Get all the steps based on a year
+     *
+     * @param int $year
+     *
+     * @returns int
+     */
+    public function getAllStepsByYear(int $year): int
+    {
+        $steps = Step::whereYear('date', $year)->get();
+
+        $totalAmountOfSteps = 0;
+        if (!$steps->isEmpty()) {
+            foreach ($steps as $step) {
+                $totalAmountOfSteps += $step->amount;
+            }
+        }
+
+        return $totalAmountOfSteps;
+    }
 }

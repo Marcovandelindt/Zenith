@@ -53,7 +53,7 @@
                             <h5 class="pt-2">Ten opzichte van vorige maand:</h5>
                         </div>
                         <div class="card-body">
-                            <p><span class="fs-1">9.327</span><span>stappen meer dan vorige maand</span></p>
+                            <p><span class="fs-1">{{ str_replace('-', '', ($stepsByMonthAndYear - $previousMonthSteps)) }}</span><span> stappen {{ (($stepsByMonthAndYear - $previousMonthSteps) < 0) ? 'minder' : 'meer' }} dan vorige maand</span></p>
                         </div>
                     </div>
                 </div>
@@ -63,7 +63,10 @@
 
     <div class="col-6">
         <div class="steps">
+            <div class="d-flex justify-content-between">
             <h3 class="title">Stappen overzicht</h3>
+                <a href="{{ route('step.totals') }}" class="btn btn-success">Totale statistieken</a>
+            </div>
 
             @if (!$steps->isEmpty())
                 <table class="table">
